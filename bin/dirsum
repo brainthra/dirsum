@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# directory is the first argument, or the current directory if no argument is provided
+directory="${1:-.}"
+
+file_count=$(find "$directory" -maxdepth 1 -type f | wc -l)
+directory_count=$(find "$directory" -mindepth 1 -maxdepth 1 -type d | wc -l)
+
+printf 'Directory: %s\n' "$directory"
+printf 'Files: %s\n' "$file_count"
+printf 'Directories: %s\n' "$directory_count"
