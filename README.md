@@ -42,3 +42,13 @@ Examples of invalid input include:
 - a path that is not a directory;
 - an unknown option;
 - more than one argument.
+
+## Development
+
+### Testing
+
+Run the tests with:
+
+```bash
+./tests/test_dirsum.sh
+```
