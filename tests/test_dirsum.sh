@@ -113,7 +113,7 @@ status=$?
 assert_status "$status" 0 \
     "--version exits successfully"
 
-assert_contains "$output" "dirsum 0.2.0" \
+assert_contains "$output" "dirsum 0.3.0" \
     "--version reports current version"
 
 # Nonexistent directory
