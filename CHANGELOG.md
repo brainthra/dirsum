@@ -6,6 +6,16 @@ The project follows Semantic Versioning.
 
 ## [Unreleased]
 
+### Added
+
+- Documented per-user installation using `~/.local/bin`.
+- Tests covering non-recursive directory summaries.
+- Tests covering hidden files and directories.
+
+### Changed
+
+- Updated usage documentation to show the installed `dirsum` command.
+
 ## [0.4.0] - 2026-08-08
 
 ## Added

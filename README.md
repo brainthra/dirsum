@@ -2,18 +2,48 @@
 
 `dirsum` is a small bash command-line utility that summarises the contents of a directory.
 
+> `dirsum` counts regular files and subdirectories directly inside the target directory.
+> > The summary is non-recursive; entries contained within subdirectories are not included.
+> >
+> > Hidden files and directories are included in the counts.
+
+## Installation
+
+Install `dirsum` for the current user by copying the executable to `~/.local/bin`:
+
+```bash
+mkdir -p ~/.local/bin
+cp bin/dirsum ~/.local/bin/dirsum
+```
+
+Ensure that `~/.local/bin` is in your `PATH`.
+
+Verify that the installation was successful by running:
+
+```bash
+command -v dirsum
+dirsum --version
+```
+
+To uninstall, simply remove the executable:
+
+```bash
+rm ~/.local/bin/dirsum
+```
+
+
 ## Usage
 
 Run `dirsum` with no arguments to summarise the current directory:
 
 ```bash
-./bin/dirsum
+dirsum
 ```
 
 Or provide a directory as the first argument:
 
 ```bash
-./bin/dirsum /path/to/directory
+dirsum /path/to/directory
 ```
 
 ### Help
@@ -21,7 +51,7 @@ Or provide a directory as the first argument:
 Show command usage:
 
 ```bash
-./bin/dirsum --help
+dirsum --help
 ```
 
 ### Version
@@ -29,7 +59,7 @@ Show command usage:
 Show the current version:
 
 ```bash
-./bin/dirsum --version
+dirsum --version
 ```
 
 ## Error behaviour
