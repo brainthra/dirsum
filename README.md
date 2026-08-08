@@ -52,3 +52,14 @@ Run the tests with:
 ```bash
 ./tests/test_dirsum.sh
 ```
+
+### Continuous integration
+
+GitHub Actions runs the project's verification checks for pull requests and updates to `main`.
+
+The workflow runs:
+
+```bash
+shellcheck bin/dirsum tests/test_dirsum.sh
+./tests/test_dirsum.sh
+```
