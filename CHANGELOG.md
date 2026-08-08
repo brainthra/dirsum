@@ -6,6 +6,8 @@ The project follows Semantic Versioning.
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-08-08
+
 ### Added
 
 - Initial project structure.
