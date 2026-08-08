@@ -6,6 +6,8 @@ The project follows Semantic Versioning.
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-08-08
+
 ### Added
 
 - Documented per-user installation using `~/.local/bin`.
