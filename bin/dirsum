@@ -1,7 +1,59 @@
 #!/usr/bin/env bash
 
+VERSION="0.2.0"
+
+print_usage() {
+    cat <<EOF
+Usage:
+dirsum [DIRECTORY]
+dirsum --help
+dirsum --version
+
+Summarise the files and immediate subdirectories in a directory.
+
+Arguments:
+DIRECTORY      Directory to summarise. Defaults to the current directory.
+
+Options:
+--help         Show this help message.
+--version      Show the program version.
+EOF
+}
+
+if (( $# > 1 )); then
+    printf 'dirsum: too many arguments\n' >&2
+    printf "Try 'dirsum --help' for more information.\n" >&2
+    exit 1
+fi
+
+if [[ "${1:-}" == "--help" ]]; then
+    print_usage
+    exit 0
+fi
+
+if [[ "${1:-}" == "--version" ]]; then
+    printf 'dirsum %s\n' "$VERSION"
+    exit 0
+fi
+
+if [[ "${1:-}" == -* ]]; then
+    printf "dirsum: unknown option '%s'\n" "$1" >&2
+    printf "Try 'dirsum --help' for more information.\n" >&2
+    exit 1
+fi
+
 # directory is the first argument, or the current directory if no argument is provided
 directory="${1:-.}"
+
+if [[ ! -e "$directory" ]]; then
+    printf "dirsum: '%s' does not exist\n" "$directory" >&2
+    exit 1
+fi
+
+if [[ ! -d "$directory" ]]; then
+    printf "dirsum: '%s' is not a directory\n" "$directory" >&2
+    exit 1
+fi
 
 file_count=$(find "$directory" -maxdepth 1 -type f | wc -l)
 directory_count=$(find "$directory" -mindepth 1 -maxdepth 1 -type d | wc -l)
