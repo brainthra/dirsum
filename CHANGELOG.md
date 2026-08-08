@@ -9,3 +9,6 @@ The project follows Semantic Versioning.
 ### Added
 
 - Initial project structure.
+- Initial `dirsum` command.
+- Directory file and subdirectory counts.
+- Optional directory argument with the current directory as the default.
