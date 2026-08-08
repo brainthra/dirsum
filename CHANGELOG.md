@@ -6,6 +6,8 @@ The project follows Semantic Versioning.
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-08-08
+
 ## Added
 
 - GitHub Actions workflow that runs ShellCheck and the Bash test suite.
