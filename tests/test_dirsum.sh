@@ -180,6 +180,32 @@ assert_empty "$stdout" \
 assert_contains "$stderr" "does not exist" \
     "errors are written to stderr"
 
+# Non-recursive summary
+mkdir -p "$TEST_DIR/non-recursive/nested"
+touch "$TEST_DIR/non-recursive/root.txt"
+touch "$TEST_DIR/non-recursive/nested/nested.txt"
+
+output="$("$DIRSUM" "$TEST_DIR/non-recursive")"
+
+assert_contains "$output" "Files: 1" \
+    "does not count nested files"
+
+assert_contains "$output" "Directories: 1" \
+    "counts only immediate subdirectories"
+
+# Hidden entries
+mkdir "$TEST_DIR/hidden"
+touch "$TEST_DIR/hidden/.hidden-file"
+mkdir "$TEST_DIR/hidden/.hidden-directory"
+
+output="$("$DIRSUM" "$TEST_DIR/hidden")"
+
+assert_contains "$output" "Files: 1" \
+    "counts hidden files"
+
+assert_contains "$output" "Directories: 1" \
+    "counts hidden directories"
+
 # Summary
 printf '\n%d passed, %d failed\n' "$passed" "$failed"
 
